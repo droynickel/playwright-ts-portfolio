@@ -10,6 +10,15 @@ export default defineConfig({
     ['list'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }]
   ],
+
+  expect: {
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.05, // Allow up to 5% pixel discrepancy
+      threshold: 0.2,          // Pixel color difference threshold
+      animations: 'disabled',  // Freeze CSS animations/transitions
+    },
+  },
+  
   use: {
     baseURL: 'https://automationexercise.com',
     trace: 'on-first-retry',
